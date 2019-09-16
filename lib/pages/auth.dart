@@ -102,7 +102,7 @@ class _AuthPageState extends State<AuthPage> {
                         model.changeDirection();
                       },
                       height: 60.0,
-                      color: const Color.fromRGBO(119, 31, 17, 1.0),
+                      color: Theme.of(context).primaryColor,
                       child: new Text(
                         DemoLocalizations.of(context).title['language'],
                         style: new TextStyle(
