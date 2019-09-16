@@ -1,6 +1,7 @@
 # localization_start_kit
 
-A new Flutter project.
+### Coming Soon !!
+
 
 ## Getting Started
 
