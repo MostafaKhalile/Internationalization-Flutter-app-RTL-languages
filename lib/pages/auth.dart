@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:localization_start_kit/Models/ScopeModelWrapper.dart';
+import 'package:scoped_model/scoped_model.dart';
 import '../utils/app_Localization.dart';
 import 'package:flutter/services.dart';
 
@@ -24,8 +26,8 @@ class _AuthPageState extends State<AuthPage> {
               gapPadding: 10.0),
           labelText: DemoLocalizations.of(context).title['userName'],
           labelStyle: const TextStyle(color: Color(0xFF2D0A22), fontSize: 24.0),
-          prefixText: ' ',
-          suffixText: '966+ ',
+          prefixText: '966+  ',
+          suffixText: '',
           suffixStyle: const TextStyle(
             color: Colors.black,
           ),
@@ -51,7 +53,7 @@ class _AuthPageState extends State<AuthPage> {
           border: new OutlineInputBorder(
               borderSide:
                   new BorderSide(color: Theme.of(context).primaryColor)),
-          labelText: 'كلمة السر',
+          labelText: DemoLocalizations.of(context).title['password'],
           labelStyle: const TextStyle(color: Colors.black, fontSize: 24.0),
           prefixIcon: null,
           suffixIcon: const Icon(
@@ -91,6 +93,27 @@ class _AuthPageState extends State<AuthPage> {
     final double targetWidth =
         deviceWidth > 550.0 ? 500.0 : MediaQuery.of(context).size.width * 0.80;
     return Scaffold(
+      appBar: AppBar(),
+      drawer: Drawer(
+        child: Center(
+            child: ScopedModelDescendant<AppModel>(
+                builder: (context, child, model) => MaterialButton(
+                      onPressed: () {
+                        model.changeDirection();
+                      },
+                      height: 60.0,
+                      color: const Color.fromRGBO(119, 31, 17, 1.0),
+                      child: new Text(
+                        DemoLocalizations.of(context).title['language'],
+                        style: new TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w300,
+                          letterSpacing: 0.3,
+                        ),
+                      ),
+                    ))),
+      ),
       backgroundColor: Colors.white,
       body: SafeArea(
         top: true,
